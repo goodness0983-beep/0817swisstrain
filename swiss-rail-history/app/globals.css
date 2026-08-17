@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif-tc: "Noto Serif TC", serif;
+  --font-sans-tc: "Noto Sans TC", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #f5f3ee;
+  color: #1b1d1f;
+}
+
+::selection {
+  background-color: #e30613;
+  color: #f5f3ee;
+}
+
+/* 站牌式數字翻牌動畫（首頁 Hero 使用） */
+@keyframes flap-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flap-row {
+  animation: flap-in 0.5s ease-out both;
+}
+
+/* 時間軸節點淡入效果 */
+@keyframes rise-in {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.6s ease-out both;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #e30613;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
